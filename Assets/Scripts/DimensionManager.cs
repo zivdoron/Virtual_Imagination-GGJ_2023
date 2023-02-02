@@ -5,12 +5,23 @@ using UnityEngine.Events;
 
 public class DimensionManager : MonoBehaviour
 {
-    [SerializeField] EventManager _eventManager;
-    [SerializeField] UnityEvent _onDimensionChange;
+    public static DimensionManager Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] EventManager _eventManager;
+
+    public System.Action<int> OnDimensionChange;
+
+    int _dimension;
+
+    private void Awake()
     {
-        _eventManager.OnChangeDimension += () => _onDimensionChange?.Invoke();
+        Instance = this;
+    }
+
+    public void ChangeDimension()
+    {
+        _dimension = 1 - _dimension;
+        OnDimensionChange?.Invoke(_dimension);
+        Debug.Log("Current dimension: " + (_dimension == 0 ? "Real" : "Dream"));
     }
 }

@@ -18,8 +18,6 @@ public class InputReceiver : ScriptableObject
         _inputActions.Gameplay.Movement.performed += ctx => DirectionInput = ctx.ReadValue<Vector2>();
         _inputActions.Gameplay.Movement.canceled += _ => DirectionInput = Vector2.zero;
 
-        _inputActions.Gameplay.Change_Dimension.performed += _ => _eventManager.OnChangeDimension?.Invoke();
-
         _inputActions.Enable();
     }
 }

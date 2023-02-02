@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Event Manager", menuName = "Managers/Event Manager")]
 public class EventManager : ScriptableObject
 {
-    public System.Action OnChangeDimension;
+    public System.Action OnObtainDimentionTravel;
 }
