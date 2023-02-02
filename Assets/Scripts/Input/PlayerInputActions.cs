@@ -35,15 +35,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Change_Dimension"",
-                    ""type"": ""Button"",
-                    ""id"": ""084c219f-1949-4f68-a0d8-c73e9f9ba3a3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -101,17 +92,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4a4d9f01-2fd5-4168-b8a2-7920c85c3076"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change_Dimension"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,7 +101,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
-        m_Gameplay_Change_Dimension = m_Gameplay.FindAction("Change_Dimension", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -182,13 +161,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Movement;
-    private readonly InputAction m_Gameplay_Change_Dimension;
     public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
         public GameplayActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputAction @Change_Dimension => m_Wrapper.m_Gameplay_Change_Dimension;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -201,9 +178,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Change_Dimension.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChange_Dimension;
-                @Change_Dimension.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChange_Dimension;
-                @Change_Dimension.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChange_Dimension;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -211,9 +185,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Change_Dimension.started += instance.OnChange_Dimension;
-                @Change_Dimension.performed += instance.OnChange_Dimension;
-                @Change_Dimension.canceled += instance.OnChange_Dimension;
             }
         }
     }
@@ -221,6 +192,5 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnChange_Dimension(InputAction.CallbackContext context);
     }
 }

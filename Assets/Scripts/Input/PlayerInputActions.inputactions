@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Change_Dimension",
-                    "type": "Button",
-                    "id": "084c219f-1949-4f68-a0d8-c73e9f9ba3a3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -79,17 +70,6 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "4a4d9f01-2fd5-4168-b8a2-7920c85c3076",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Change_Dimension",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
