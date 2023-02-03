@@ -609,6 +609,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  reading: 0
 --- !u!61 &415713864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -696,7 +697,7 @@ Transform:
   m_GameObject: {fileID: 415713862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.5, y: -13, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1048359905}
@@ -1015,6 +1016,7 @@ MonoBehaviour:
   OnTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
+  reading: 0
 --- !u!61 &630584744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1456,21 +1458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventManager: {fileID: 11400000, guid: 137bf7198d338a94e8d7b7b2d5033f52, type: 2}
-  OnDimensionChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 732057213}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &962113967
 Transform:
   m_ObjectHideFlags: 0
@@ -8558,6 +8545,7 @@ MonoBehaviour:
   OnTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
+  reading: 0
 --- !u!61 &2081416257
 BoxCollider2D:
   m_ObjectHideFlags: 0
