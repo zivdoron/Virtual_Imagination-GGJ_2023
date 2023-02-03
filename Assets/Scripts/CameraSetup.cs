@@ -19,7 +19,7 @@ public class CameraSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _cameraActions.Invoke();
+        _cameraActions?.Invoke();
     }
 
     void FollowPlayer()
