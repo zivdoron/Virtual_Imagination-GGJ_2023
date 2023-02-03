@@ -11,9 +11,9 @@ public class ElectricPuzzleBase : MonoBehaviour
     [Tooltip("Write the index at which the break happens. Example: [3] will yield a circuit break between points 3 and 4")] 
     int _breakAtPoint;
     [SerializeField] ParticleSystem _sparksParticles;
-    
-    Transform[] _points;
 
+    bool _isBroken;
+    Transform[] _points;
     LineRenderer _lineStart;
     LineRenderer _lineEnd;
 
@@ -34,7 +34,7 @@ public class ElectricPuzzleBase : MonoBehaviour
         _lineStart.positionCount = _breakAtPoint + 2;
         for (int i = 0; i < _breakAtPoint + 1; i++)
         {
-            _lineStart.SetPosition(i, _points[i].transform.position);
+            _lineStart.SetPosition(i, transform.InverseTransformPoint(_points[i].transform.position));
         }
 
         DrawBrokenPath();
@@ -42,7 +42,7 @@ public class ElectricPuzzleBase : MonoBehaviour
         _lineEnd.positionCount = _points.Length - (_breakAtPoint + 1);
         for (int i = _breakAtPoint + 1; i < _points.Length; i++)
         {
-            _lineEnd.SetPosition(i - (_breakAtPoint + 1), _points[i].transform.position);
+            _lineEnd.SetPosition(i - (_breakAtPoint + 1), transform.InverseTransformPoint(_points[i].transform.position));
         }
 
         _sparksParticles.transform.position = _points[_breakAtPoint + 1].transform.position;
@@ -51,10 +51,13 @@ public class ElectricPuzzleBase : MonoBehaviour
     void DrawBrokenPath()
     {
         Vector2 directionToNextPoint =
-            _points[_breakAtPoint + 1].transform.position - _points[_breakAtPoint].transform.position;
+            transform.InverseTransformPoint(_points[_breakAtPoint + 1].transform.position)
+            - transform.InverseTransformPoint(_points[_breakAtPoint].transform.position);
         Vector3 _brokenDirection = Quaternion.Euler(Vector3.forward * 10f) * directionToNextPoint;
-        _lineStart.SetPosition(_breakAtPoint + 1, _points[_breakAtPoint].transform.position + _brokenDirection);
+        _lineStart.SetPosition(_breakAtPoint + 1, 
+            transform.InverseTransformPoint(_points[_breakAtPoint].transform.position) + _brokenDirection);
         _lineStart.startColor = _lineStart.endColor = _lineEnd.startColor = _lineEnd.endColor = Color.red;
+        _isBroken = true;
     }
 
     private void SetupWirePoints()
@@ -66,9 +69,9 @@ public class ElectricPuzzleBase : MonoBehaviour
         }
     }
 
-    public void ToggleBroken(bool value)
+    public void ToggleBroken()
     {
-        if (!value)
+        if (!_isBroken)
         {
             DrawBrokenPath();
         }
@@ -76,14 +79,16 @@ public class ElectricPuzzleBase : MonoBehaviour
         {
             DrawFixedPath();
         }
-        OnCircuitToggle?.Invoke(value);
+        OnCircuitToggle?.Invoke(!_isBroken);
     }
 
     void DrawFixedPath()
     {
-        _lineStart.SetPosition(_breakAtPoint + 1, _points[_breakAtPoint + 1].transform.position);
+        _lineStart.SetPosition(_breakAtPoint + 1, 
+            transform.InverseTransformPoint(_points[_breakAtPoint + 1].transform.position));
         _lineStart.startColor = _lineStart.endColor = _lineEnd.startColor = _lineEnd.endColor = Color.green;
         
         _sparksParticles.Play();
+        _isBroken = false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -19,6 +20,7 @@ public class MovableDoor : MonoBehaviour
     [Min(1f)] float _doorSpeed = 3f;
     [SerializeField] float _endRotationValue = 90;
     [SerializeField] OpenType _doorOpenType;
+    [SerializeField] bool _hasPower = true;
 
     Vector3 _openPosition;
     Vector3 _closePosition;
@@ -26,6 +28,7 @@ public class MovableDoor : MonoBehaviour
     bool _isOpen;
 
     DoorOpenSequence _openSequence;
+    List<DoorOpenSequence> _openSequenceList = new List<DoorOpenSequence>();
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +38,10 @@ public class MovableDoor : MonoBehaviour
             case OpenType.Move:
                 _openPosition = _openTransform.position;
                 _closePosition = _doorParent.position;
-                _openSequence = MoveDoor;
+                _openSequence = Move;
                 break;
             case OpenType.Rotate:
-                _openSequence = RotateDoor;
+                _openSequence = Rotate;
                 break;
             default:
                 break;
@@ -49,55 +52,63 @@ public class MovableDoor : MonoBehaviour
 
     public void ToggleDoorOpen()
     {
+        if (!_hasPower)
+        {
+            _openSequenceList.Add(_isOpen? CloseDoor : OpenDoor);
+            return;
+        }
         _isOpen = !_isOpen;
         _openSequence?.Invoke();
     }
 
-    void MoveDoor()
+    void Move()
     {
         Vector3 _endPosition = _isOpen ? _openPosition : _closePosition;
-        Move(_endPosition);
-    }
-    void Move(Vector3 dest)
-    {
         StopAllCoroutines();
-        StartCoroutine(MoveDoorCoroutine(dest));
+        StartCoroutine(MoveDoorCoroutine(_endPosition));
     }
     public void OpenDoor()
     {
-        if(_doorOpenType == OpenType.Move)
+        if (!_hasPower)
         {
-            Move(_openPosition);
+            _openSequenceList.Add(OpenDoor);
+            return;
+        }
+        if (_doorOpenType == OpenType.Move)
+        {
             _isOpen = true;
+            Move();
         }
         if (_doorOpenType == OpenType.Rotate)
         {
-            Rotate(_openPosition);
             _isOpen= true;
+            Rotate();
         }
     }
     public void CloseDoor()
     {
+        if (!_hasPower)
+        {
+            _openSequenceList.Add(CloseDoor);
+            return;
+        }
+        Debug.Log("Close Called!");
         if (_doorOpenType == OpenType.Move)
         {
-            Move(_closePosition);
             _isOpen = false;
+            Move();
         }
         if (_doorOpenType == OpenType.Rotate)
         {
-            Rotate(_closePosition);
             _isOpen = false;
+            Rotate();
         }
     }
 
-    void RotateDoor()
+    private void Rotate()
     {
+        Debug.Log(_isOpen);
         Vector3 _endRotation = _isOpen ? Vector3.forward * _endRotationValue : Vector3.zero;
-        Rotate(_endRotation);
-    }
-
-    private void Rotate(Vector3 _endRotation)
-    {
         StopAllCoroutines();
         StartCoroutine(RotateDoorCoroutine(_endRotation));
     }
@@ -106,7 +117,7 @@ public class MovableDoor : MonoBehaviour
 
     IEnumerator MoveDoorCoroutine(Vector3 _endPosition)
     {
-        while (Vector3.SqrMagnitude(_doorParent.position - _endPosition) > 0.1f)
+        while (Vector3.SqrMagnitude(_doorParent.position - _endPosition) > Mathf.Epsilon)
         {
             _doorParent.position = Vector3.Lerp(_doorParent.position, _endPosition, _doorSpeed * Time.deltaTime);
 
@@ -124,5 +135,14 @@ public class MovableDoor : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void SetPowerEnabled(bool value)
+    {
+        _hasPower = value;
+        if (!value) return;
+        Debug.Log("Checking list... " + _openSequenceList.Count + " waiting operation(s)!");
+        _openSequenceList[_openSequenceList.Count - 1].Invoke();
+        _openSequenceList.Clear();
     }
 }
