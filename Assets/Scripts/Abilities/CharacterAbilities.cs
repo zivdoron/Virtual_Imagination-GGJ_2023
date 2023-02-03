@@ -26,7 +26,7 @@ public class CharacterAbilities : MonoBehaviour
     }
     public void UnassignBreakable(Breakable breakable)
     {
-        if(currBreakable = breakable)
+        if(currBreakable == breakable)
         {
             currBreakable = null;
         }

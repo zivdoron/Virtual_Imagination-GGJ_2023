@@ -6,7 +6,7 @@ public class Breakable : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == PlayerController.Instance.gameObject)
+        if(collision.gameObject.CompareTag("Player"))
         {
             CharacterAbilities.instance.AssignBreakable(this);
             
@@ -14,7 +14,7 @@ public class Breakable : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {        
-        if (collision.gameObject == PlayerController.Instance.gameObject)
+        if (collision.gameObject.CompareTag("Player"))
         {
             CharacterAbilities.instance.UnassignBreakable(this);
         }

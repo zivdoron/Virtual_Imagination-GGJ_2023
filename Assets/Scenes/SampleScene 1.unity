@@ -597,9 +597,9 @@ MonoBehaviour:
   OnTriggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 74dfb9721c26c8e4798ec388d542fddf, type: 2}
-        m_TargetAssemblyTypeName: InputReceiver, Assembly-CSharp
-        m_MethodName: EnableDimensionShift
+      - m_Target: {fileID: 11400000, guid: 137bf7198d338a94e8d7b7b2d5033f52, type: 2}
+        m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
+        m_MethodName: RegisterDimensionTravelObtained
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1121,6 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732057212}
   - component: {fileID: 732057213}
+  - component: {fileID: 732057214}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -1221,6 +1222,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &732057214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732057211}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291ff11119f4296468f276fb5f3c731a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &792899972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1245,8 @@ GameObject:
   - component: {fileID: 792899975}
   - component: {fileID: 792899974}
   - component: {fileID: 792899973}
+  - component: {fileID: 792899977}
+  - component: {fileID: 792899976}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1293,6 +1308,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792899976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792899972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18020d8485b3374ebbfe5860148936d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 0
+--- !u!114 &792899977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792899972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4166300903636428c767de08e6abf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventManager: {fileID: 11400000, guid: 137bf7198d338a94e8d7b7b2d5033f52, type: 2}
 --- !u!1 &924241525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventManager: {fileID: 11400000, guid: 137bf7198d338a94e8d7b7b2d5033f52, type: 2}
+  _dreamGateMaterial: {fileID: 2100000, guid: de8a81a07fab54a4db318c45625cce8d, type: 2}
 --- !u!4 &962113967
 Transform:
   m_ObjectHideFlags: 0
@@ -1767,6 +1809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583442140}
   - component: {fileID: 1583442139}
+  - component: {fileID: 1583442141}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -1806,6 +1849,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583442141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583442138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2459f5f15821a0a4682d0c01e4d1e822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1691452676
 GameObject:
   m_ObjectHideFlags: 0
