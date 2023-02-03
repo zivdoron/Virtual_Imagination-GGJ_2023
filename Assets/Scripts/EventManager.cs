@@ -6,4 +6,5 @@ using UnityEngine;
 public class EventManager : ScriptableObject
 {
     public System.Action OnObtainDimentionTravel;
+    public System.Action OnInteractPressed;
 }

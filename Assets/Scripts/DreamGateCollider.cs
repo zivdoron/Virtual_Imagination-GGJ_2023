@@ -13,6 +13,6 @@ public class DreamGateCollider : MonoBehaviour
     {
         _gateCollider = GetComponent<Collider2D>();
 
-        DimensionManager.Instance.OnDimensionChange.AddListener(dimensionState => _gateCollider.enabled = dimensionState == 0);
+        DimensionManager.Instance.OnDimensionChange += dimensionState => _gateCollider.enabled = dimensionState == 0;
     }
 }
