@@ -19,5 +19,15 @@ public class InputReceiver : ScriptableObject
         _inputActions.Gameplay.Movement.canceled += _ => DirectionInput = Vector2.zero;
 
         _inputActions.Enable();
+
+        _eventManager.OnObtainDimentionTravel += EnableDimensionShift;
+    }
+
+    void EnableDimensionShift()
+    {
+        _inputActions.Gameplay.Change_Dimensions.performed += _ =>
+        {
+            DimensionManager.Instance.ChangeDimension();
+        };
     }
 }

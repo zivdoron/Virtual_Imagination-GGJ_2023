@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Change_Dimensions",
+                    "type": "Button",
+                    "id": "e79e2451-6d57-41c2-90aa-9fade302dfac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b7155f99-fc24-492f-9685-2fcddd4eec13",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change_Dimensions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

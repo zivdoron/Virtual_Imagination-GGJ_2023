@@ -9,7 +9,7 @@ public class DimensionManager : MonoBehaviour
 
     [SerializeField] EventManager _eventManager;
 
-    public System.Action<int> OnDimensionChange;
+    public UnityEvent<int> OnDimensionChange;
 
     int _dimension;
 
