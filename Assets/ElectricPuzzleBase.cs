@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class ElectricPuzzleBase : MonoBehaviour
     [Tooltip("Write the index at which the break happens. Example: [3] will yield a circuit break between points 3 and 4")] 
     int _breakAtPoint;
     [SerializeField] ParticleSystem _sparksParticles;
+    [SerializeField] Transform _currentDisplay;
+    [SerializeField] int _currentFlowDirection = -1;
 
     bool _isBroken;
     Transform[] _points;
@@ -74,12 +77,39 @@ public class ElectricPuzzleBase : MonoBehaviour
         if (!_isBroken)
         {
             DrawBrokenPath();
+            //StopAllCoroutines();
+            _currentDisplay.gameObject.SetActive(false);
         }
         else
         {
             DrawFixedPath();
+            //StartCoroutine(AnimateCurrent());
         }
         OnCircuitToggle?.Invoke(!_isBroken);
+    }
+
+    private IEnumerator AnimateCurrent()
+    {
+        int _currentIndex = _currentFlowDirection > 0 ? 0 : _points.Length - 1, _startIndex = _currentIndex;
+        _currentDisplay.position = _points[_currentIndex].transform.position;
+        int _nextIndex = (_currentIndex + _currentFlowDirection + _points.Length) % _points.Length;
+        while (!_isBroken)
+        {
+            while (_currentDisplay.position != _points[_nextIndex].transform.position)
+            {
+                _currentDisplay.position = Vector3.MoveTowards(_currentDisplay.position,
+                    _points[_nextIndex].transform.position,
+                    10 * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+            _currentIndex = _nextIndex; 
+            _nextIndex = (_currentIndex + _currentFlowDirection + _points.Length) % _points.Length;
+            if (_nextIndex == _startIndex)
+            {
+                _currentDisplay.position = _points[_nextIndex].transform.position;
+
+            }
+        }
     }
 
     void DrawFixedPath()
