@@ -25,6 +25,7 @@ public class InputReceiver : ScriptableObject
         _inputActions.Enable();
 
         _eventManager.OnObtainDimentionTravel += EnableDimensionShift;
+        _eventManager.OnScreenTransitionCalled += () => _inputActions.Disable();
     }
 
     public void EnableDimensionShift()
