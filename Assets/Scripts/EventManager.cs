@@ -6,11 +6,17 @@ using UnityEngine;
 public class EventManager : ScriptableObject
 {
     public System.Action OnObtainDimentionTravel;
+    public System.Action OnObtainPushAbility;
     public System.Action OnInteractPressed;
     public System.Action OnAbilityPressed;
 
     public void RegisterDimensionTravelObtained()
     {
         OnObtainDimentionTravel?.Invoke();
+    }
+
+    public void RegisterObjectPushObtained()
+    {
+        OnObtainPushAbility?.Invoke();
     }
 }

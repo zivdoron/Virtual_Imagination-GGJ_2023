@@ -46,8 +46,6 @@ public class MovableDoor : MonoBehaviour
             default:
                 break;
         }
-
-        
     }
 
     public void ToggleDoorOpen()
@@ -55,6 +53,7 @@ public class MovableDoor : MonoBehaviour
         if (!_hasPower)
         {
             _openSequenceList.Add(_isOpen? CloseDoor : OpenDoor);
+            _isOpen = !_isOpen;
             return;
         }
         _isOpen = !_isOpen;
@@ -74,6 +73,7 @@ public class MovableDoor : MonoBehaviour
             _openSequenceList.Add(OpenDoor);
             return;
         }
+
         if (_doorOpenType == OpenType.Move)
         {
             _isOpen = true;
@@ -92,7 +92,7 @@ public class MovableDoor : MonoBehaviour
             _openSequenceList.Add(CloseDoor);
             return;
         }
-        Debug.Log("Close Called!");
+
         if (_doorOpenType == OpenType.Move)
         {
             _isOpen = false;
@@ -140,8 +140,8 @@ public class MovableDoor : MonoBehaviour
     public void SetPowerEnabled(bool value)
     {
         _hasPower = value;
-        if (!value) return;
-        Debug.Log("Checking list... " + _openSequenceList.Count + " waiting operation(s)!");
+        if (!value || _openSequenceList.Count == 0) return;
+
         _openSequenceList[_openSequenceList.Count - 1].Invoke();
         _openSequenceList.Clear();
     }
