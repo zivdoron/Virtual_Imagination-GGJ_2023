@@ -28,8 +28,8 @@ public class MenuManager : MonoBehaviour
 
         while (Mathf.Abs(_targetAlpha - _secondPanel.alpha) > Mathf.Epsilon)
         {
-            _secondPanel.alpha += _direction * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            _secondPanel.alpha += _direction * Time.unscaledDeltaTime;
+            yield return new WaitForSecondsRealtime(Time.unscaledDeltaTime);
         }
         if (!_isOpen)
         {

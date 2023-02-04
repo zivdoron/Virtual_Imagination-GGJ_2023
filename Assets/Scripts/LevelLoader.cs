@@ -20,7 +20,7 @@ public class LevelLoader : ScriptableObject
 
     void LoadTargetLevel()
     {
-        Debug.Log("Loading target level!");
+        _eventManager.ClearAllEvents();
         SceneManager.LoadScene(_targetLevel);
     }
 }

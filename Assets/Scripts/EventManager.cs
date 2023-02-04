@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class EventManager : ScriptableObject
     public System.Action OnAbilityPressed;
     public System.Action OnScreenTransitionCalled;
     public System.Action OnReadyToSceneTransition;
+    public System.Action OnPausePressed;
 
     public void RegisterDimensionTravelObtained()
     {
@@ -26,4 +28,17 @@ public class EventManager : ScriptableObject
     {
         OnScreenTransitionCalled?.Invoke();
     }
-}
+
+    public void ClearAllEvents()
+    {
+        OnObtainPushAbility = null;
+        OnObtainDimentionTravel = null;
+        OnInteractPressed = null;
+        OnAbilityPressed = null;
+        OnScreenTransitionCalled = null;
+        OnReadyToSceneTransition = null;
+        OnPausePressed = null;
+    }
+    
+}  
+        

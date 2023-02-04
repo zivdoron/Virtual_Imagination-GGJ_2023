@@ -20,6 +20,8 @@ public class InputReceiver : ScriptableObject
 
         _inputActions.Gameplay.Interact.performed += _ => _eventManager.OnInteractPressed?.Invoke();
 
+        _inputActions.Gameplay.Pause.performed += _ => _eventManager.OnPausePressed?.Invoke();
+
         _inputActions.Enable();
 
         _eventManager.OnObtainDimentionTravel += EnableDimensionShift;
