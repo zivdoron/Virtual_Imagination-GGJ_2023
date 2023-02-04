@@ -732,6 +732,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2496528309309975702, guid: 1e8689c214f21e448bf9f7ac737e54db, type: 3}
+      propertyPath: _currentDisplay
+      value: 
+      objectReference: {fileID: 1504238897}
+    - target: {fileID: 2496528309309975702, guid: 1e8689c214f21e448bf9f7ac737e54db, type: 3}
+      propertyPath: _currentFlowDirection
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496528309309975702, guid: 1e8689c214f21e448bf9f7ac737e54db, type: 3}
       propertyPath: OnCircuitToggle.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6887,6 +6895,11 @@ Transform:
   m_Father: {fileID: 1059711311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1504238897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7962376134149915615, guid: 1e8689c214f21e448bf9f7ac737e54db, type: 3}
+  m_PrefabInstance: {fileID: 191219441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1524913867
 PrefabInstance:
   m_ObjectHideFlags: 0

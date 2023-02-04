@@ -83,13 +83,14 @@ public class ElectricPuzzleBase : MonoBehaviour
         else
         {
             DrawFixedPath();
-            //StartCoroutine(AnimateCurrent());
+            StartCoroutine(AnimateCurrent());
         }
         OnCircuitToggle?.Invoke(!_isBroken);
     }
 
     private IEnumerator AnimateCurrent()
     {
+        _currentDisplay.gameObject.SetActive(true);
         int _currentIndex = _currentFlowDirection > 0 ? 0 : _points.Length - 1, _startIndex = _currentIndex;
         _currentDisplay.position = _points[_currentIndex].transform.position;
         int _nextIndex = (_currentIndex + _currentFlowDirection + _points.Length) % _points.Length;
@@ -107,7 +108,8 @@ public class ElectricPuzzleBase : MonoBehaviour
             if (_nextIndex == _startIndex)
             {
                 _currentDisplay.position = _points[_nextIndex].transform.position;
-
+                _currentIndex = _nextIndex;
+                _nextIndex = (_currentIndex + _currentFlowDirection + _points.Length) % _points.Length;
             }
         }
     }
