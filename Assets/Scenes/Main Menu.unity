@@ -159,7 +159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -230}
-  m_SizeDelta: {x: 350, y: 90}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319950607
 MonoBehaviour:
@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 127.2
+  m_fontSizeBase: 127.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -318,8 +318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44.999996, y: 0}
+  m_AnchoredPosition: {x: 105, y: 0}
   m_SizeDelta: {x: 428.6, y: 160.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638807792
@@ -962,8 +962,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Moriel Segal - Lead Art
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1196,7 +1196,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -503, y: 125}
-  m_SizeDelta: {x: 524.1, y: 228.3}
+  m_SizeDelta: {x: 735.8, y: 228.3}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &749844054
 MonoBehaviour:
@@ -1218,12 +1218,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ziv Doron - Lead Game Design
-
-    Dev'
+  m_text: "Ziv Doron - \nLead Game Design\nDev"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1925,7 +1923,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -230}
-  m_SizeDelta: {x: 1000, y: 250}
+  m_SizeDelta: {x: 1477.33, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571476531
 MonoBehaviour:
@@ -1949,8 +1947,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Dreamer's Fragments
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1974,8 +1972,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125.4
-  m_fontSizeBase: 125.4
+  m_fontSize: 112.48
+  m_fontSizeBase: 112.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2084,8 +2082,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2219,8 +2217,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2354,8 +2352,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2465,7 +2463,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 194, y: 0}
-  m_SizeDelta: {x: 435, y: 152.2}
+  m_SizeDelta: {x: 449.4, y: 152.2}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2063373509
 MonoBehaviour:
@@ -2489,8 +2487,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Almog Rimer - Lead Dev
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
+  m_sharedMaterial: {fileID: -5972049630345470088, guid: 79d024433d35eed48852e5ed7f0a26a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
